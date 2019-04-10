@@ -1,0 +1,50 @@
+<mat-card>
+<mat-toolbar color="primary">
+	<span>Home:</span>
+</mat-toolbar>
+
+
+  <form class="my-form" #userForm ="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <div class="inline">
+     
+<mat-form-field  appearance="outline" >
+  <mat-label > Username: </mat-label>
+   <input matInput name="username"  [formControl]="myFormControl" [matAutocomplete]="auto" required  >
+   <mat-autocomplete #auto="matAutocomplete" >
+     <mat-option *ngFor="let user of filteredValues" [value]=user>{{user}}</mat-option>
+   </mat-autocomplete>
+    </mat-form-field>
+
+   <button mat-flat-button color="primary" type="button">Go</button>
+    </div>
+  <mat-form-field >
+  <mat-label > Project: </mat-label>
+   <mat-select name="project" id="project" [(ngModel)]='project'>
+     <mat-option *ngFor="let project of projects" [value]="project">
+      {{project}}</mat-option>
+   </mat-select>
+  </mat-form-field>
+  
+   <mat-form-field >
+  <mat-label > Build: </mat-label>
+   <mat-select name="build" id="build" [(ngModel)]='build'>
+     <mat-option *ngFor="let build of builds" [value]="build">
+      {{build}}</mat-option>
+   </mat-select>
+  </mat-form-field>
+   <mat-form-field >
+  <mat-label > Sub-build: </mat-label>
+   <mat-select name="subBuild" [(ngModel)]='subBuild'>
+     <mat-option *ngFor="let subBuild of subBuilds" [value]="subBuild">
+      {{subBuild}}</mat-option>
+   </mat-select>
+  </mat-form-field>
+  
+  
+   <button  mat-flat-button color="primary" type="button" (click)="onCancel(userForm)">Cancel</button>
+    <span class="spacer"></span>
+   <button  mat-flat-button color="primary" type="submit" >Submit</button>
+
+  </form>
+  </mat-card>
+

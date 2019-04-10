@@ -1,0 +1,25 @@
+mat-toolbar{
+    position: relative;
+   
+    width: 100% !important;
+}
+
+
+.my-form{
+  display:block;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+mat-form-field{
+  display: flex;
+  width:250px;
+}
+
+.inline{
+  display:inline-flex;
+  align-items:baseline;
+}
+.spacer{
+  margin: 10px;
+}
+
